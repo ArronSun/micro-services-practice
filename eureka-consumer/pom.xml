@@ -20,6 +20,11 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>site.sunlong</groupId>
             <artifactId>ribbon</artifactId>
             <version>0.0.1-SNAPSHOT</version>
