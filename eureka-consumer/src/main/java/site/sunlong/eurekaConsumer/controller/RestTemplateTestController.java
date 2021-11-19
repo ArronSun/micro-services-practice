@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class RestTemplateTestController {
 
+    // 用feign调用时要把这个注释掉，不知道为啥
 //    @Autowired
     private RestTemplate restTemplate;
 
