@@ -11,6 +11,7 @@
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <springboot.version>2.1.6.RELEASE</springboot.version>
     </properties>
 
     <modules>
@@ -24,17 +25,11 @@
     <dependencyManagement>
         <dependencies>
 
-            <dependency> <!-- 进行SpringCloud依赖包的导入处理 -->
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency> <!-- SpringCloud离不开SpringBoot，所以必须要配置此依赖包 -->
+            <!-- SpringCloud离不开SpringBoot，所以必须要配置此依赖包 -->
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.1.6.RELEASE</version>
+                <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
