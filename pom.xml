@@ -2,9 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>site.sunlong</groupId>
     <artifactId>base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>micro-services-practice</name>
     <description>micro-services-practice</description>
     <properties>
@@ -24,16 +32,6 @@
 
     <dependencyManagement>
         <dependencies>
-
-            <!-- SpringCloud离不开SpringBoot，所以必须要配置此依赖包 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${springboot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -42,27 +40,44 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- SpringCloud离不开SpringBoot，所以必须要配置此依赖包 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
 
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+            </dependency>
 
             <dependency>
                 <groupId>site.sunlong</groupId>
                 <artifactId>eureka-server</artifactId>
+                <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>site.sunlong</groupId>
                 <artifactId>eureka-provider</artifactId>
+                <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>site.sunlong</groupId>
                 <artifactId>eureka-consumer</artifactId>
+                <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>site.sunlong</groupId>
                 <artifactId>hystrix-dashboard</artifactId>
+                <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>site.sunlong</groupId>
                 <artifactId>ribbon</artifactId>
+                <version>${version}</version>
             </dependency>
 
         </dependencies>
