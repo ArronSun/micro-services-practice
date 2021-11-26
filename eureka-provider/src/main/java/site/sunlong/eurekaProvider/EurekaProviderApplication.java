@@ -8,9 +8,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 //hystrix
-@EnableDiscoveryClient
-@EnableCircuitBreaker
 
+@EnableHystrix
 @EnableEurekaClient
 @SpringBootApplication(scanBasePackages = {"site.sunlong.*.*"})
 public class EurekaProviderApplication {

@@ -1,5 +1,6 @@
 package site.sunlong.eurekaConsumer.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,11 @@ public class FeignController {
     @Autowired
     private ProviderService providerService;
 
+    @HystrixCommand
+    @GetMapping("hello")
+    public String hello(){
+        return "hello-test";
+    }
 
     @GetMapping("test")
     public String test(){
@@ -28,7 +34,7 @@ public class FeignController {
     }
 
     @GetMapping("getName/{name}")
-    public String testHystrix(@PathVariable("name") String name){
+    public String testProviderHystrix(@PathVariable("name") String name){
         return providerService.testHystrix(name);
     }
 
