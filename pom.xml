@@ -28,6 +28,7 @@
         <module>eureka-provider</module>
         <module>hystrix-dashboard</module>
         <module>ribbon</module>
+        <module>zuul-gateway</module>
     </modules>
 
     <dependencyManagement>
