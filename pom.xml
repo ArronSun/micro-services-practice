@@ -12,7 +12,7 @@
     <groupId>site.sunlong</groupId>
     <artifactId>base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
+    <packaging>pom</packaging>
     <name>micro-services-practice</name>
     <description>micro-services-practice</description>
     <properties>
