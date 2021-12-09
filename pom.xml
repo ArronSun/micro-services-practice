@@ -29,6 +29,10 @@
         <module>hystrix-dashboard</module>
         <module>ribbon</module>
         <module>zuul-gateway</module>
+        <module>user-provider</module>
+        <module>hystrix-dashboard-turbine</module>
+        <module>cloud-config-server</module>
+        <module>cloud-config-client</module>
     </modules>
 
     <dependencyManagement>
@@ -87,6 +91,22 @@
                 <version>${version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>site.sunlong</groupId>
+                <artifactId>hystrix-dashboard-turbine</artifactId>
+                <version>${version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>site.sunlong</groupId>
+                <artifactId>cloud-config-server</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.sunlong</groupId>
+                <artifactId>cloud-config-client</artifactId>
+                <version>${version}</version>
+            </dependency>
         </dependencies>
 
 
