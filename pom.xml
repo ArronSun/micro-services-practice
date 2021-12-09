@@ -33,6 +33,7 @@
         <module>hystrix-dashboard-turbine</module>
         <module>cloud-config-server</module>
         <module>cloud-config-client</module>
+        <module>cloud-stream-provider</module>
     </modules>
 
     <dependencyManagement>
@@ -105,6 +106,11 @@
             <dependency>
                 <groupId>site.sunlong</groupId>
                 <artifactId>cloud-config-client</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.sunlong</groupId>
+                <artifactId>cloud-stream-provider</artifactId>
                 <version>${version}</version>
             </dependency>
         </dependencies>
