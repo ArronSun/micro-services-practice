@@ -81,6 +81,12 @@
                 <version>${version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>site.sunlong</groupId>
+                <artifactId>user-provider</artifactId>
+                <version>${version}</version>
+            </dependency>
+
         </dependencies>
 
 
