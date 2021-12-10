@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import site.sunlong.cloudStream.CloudStreamApplication;
+import site.sunlong.cloudStream.CloudStreamProviderApplication;
 import site.sunlong.cloudStream.rabbitmq.SourceProvider;
 
 /**
@@ -13,15 +13,15 @@ import site.sunlong.cloudStream.rabbitmq.SourceProvider;
  * @date: 2021/12/9 16:49
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = CloudStreamApplication.class)
-public class CloudStreamTest {
+@SpringBootTest(classes = CloudStreamProviderApplication.class)
+public class CloudStreamProviderTest {
 
     @Autowired
     private SourceProvider sourceProvider;
 
     @Test
     public void test(){
-        sourceProvider.send("hello");
+        sourceProvider.send("hello,this is first message");
     }
 
 }
