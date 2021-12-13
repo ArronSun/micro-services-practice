@@ -6,12 +6,11 @@
         <groupId>site.sunlong</groupId>
         <artifactId>base</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <artifactId>cloud-stream-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>stream-consumer</name>
+    <name>cloud-stream-consumer</name>
     <description>cloud-stream-consumer</description>
     <properties>
         <java.version>1.8</java.version>
@@ -28,13 +27,6 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-stream</artifactId>
-            <scope>test</scope>
-            <classifier>test-binder</classifier>
-            <type>test-jar</type>
-        </dependency>
     </dependencies>
 
 </project>

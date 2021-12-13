@@ -7,7 +7,6 @@
         <groupId>site.sunlong</groupId>
         <artifactId>base</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <artifactId>ribbon</artifactId>

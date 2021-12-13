@@ -1,5 +1,3 @@
-package site.sunlong.cloudStream.test;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,7 @@ import site.sunlong.cloudStream.rabbitmq.SourceProvider;
 
 /**
  * @Author: Sunlong
- * @date: 2021/12/9 16:49
+ * @date: 2021/12/13 18:38
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = CloudStreamProviderApplication.class)
