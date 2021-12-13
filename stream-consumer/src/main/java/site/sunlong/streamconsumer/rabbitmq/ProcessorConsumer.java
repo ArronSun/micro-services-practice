@@ -2,23 +2,18 @@ package site.sunlong.streamconsumer.rabbitmq;
 
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
-import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.messaging.Message;
-import org.springframework.stereotype.Component;
-
+import site.sunlong.streamconsumer.messaging.IProcessor;
 
 /**
- * 收信方
  * @Author: Sunlong
- * @date: 2021/12/9 16:15
+ * @date: 2021/12/13 10:30
  */
+@EnableBinding(IProcessor.class)
+public class ProcessorConsumer {
 
-//@EnableBinding(Sink.class)
-public class SinkReceiver {
-
-    @StreamListener(Sink.INPUT)
+    @StreamListener(IProcessor.INPUT)
     public void receive(Message<?> receivedMessage){
         System.out.println("receivedMessage="+receivedMessage.getPayload());
     }
-
 }
