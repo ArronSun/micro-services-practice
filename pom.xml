@@ -34,7 +34,7 @@
         <module>cloud-config-server</module>
         <module>cloud-config-client</module>
         <module>cloud-stream-provider</module>
-        <module>stream-consumer</module>
+        <module>cloud-stream-consumer</module>
     </modules>
 
     <dependencyManagement>
