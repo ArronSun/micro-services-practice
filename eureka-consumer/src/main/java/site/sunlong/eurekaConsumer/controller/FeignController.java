@@ -2,6 +2,7 @@ package site.sunlong.eurekaConsumer.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import site.sunlong.eurekaConsumer.service.ProviderService;
 @RestController
 public class FeignController {
 
+    @Qualifier("ZUUL-GATEWAY")
     @Autowired
     private ProviderService providerService;
 

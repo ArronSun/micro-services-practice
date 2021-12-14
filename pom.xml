@@ -3,18 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
     <groupId>site.sunlong</groupId>
     <artifactId>base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
     <name>micro-services-practice</name>
     <description>micro-services-practice</description>
     <properties>
@@ -55,6 +46,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
 
@@ -64,64 +57,32 @@
                 <scope>test</scope>
             </dependency>-->
 
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>eureka-server</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>eureka-provider</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>eureka-consumer</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>hystrix-dashboard</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>ribbon</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>user-provider</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>hystrix-dashboard-turbine</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>cloud-config-server</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>cloud-config-client</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>site.sunlong</groupId>
-                <artifactId>cloud-stream-provider</artifactId>
-                <version>${project.version}</version>
-            </dependency>
         </dependencies>
 
 
     </dependencyManagement>
 
+    <build>
 
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimiter>$</delimiter>
+                    </delimiters>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${jdk.version}</source><!-- 源代码使用的开发版本 -->
+                    <target>${jdk.version}</target><!-- 需要生成的目标class文件的编译版本 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

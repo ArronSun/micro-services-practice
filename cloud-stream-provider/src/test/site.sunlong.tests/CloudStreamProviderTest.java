@@ -27,7 +27,7 @@ public class CloudStreamProviderTest {
 
     @Test
     public void testProcessor(){
-        processorProvider.send("hello,this is testProcessor message");
+        processorProvider.send("hello,this is testProcessor message2");
     }
 
 }

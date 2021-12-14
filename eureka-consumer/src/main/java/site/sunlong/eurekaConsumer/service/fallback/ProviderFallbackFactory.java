@@ -16,6 +16,16 @@ public class ProviderFallbackFactory implements FallbackFactory<ProviderService>
     @Override
     public ProviderService create(Throwable throwable) {
 
-        return new ProviderServiceFallback();
+        return new ProviderService() {
+            @Override
+            public String test() {
+                return "ProviderFallbackFactory-test";
+            }
+
+            @Override
+            public String testHystrix(String name) {
+                return "ProviderFallbackFactory-testHystrix";
+            }
+        };
     }
 }
