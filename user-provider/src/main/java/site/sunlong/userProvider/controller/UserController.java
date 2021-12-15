@@ -21,7 +21,7 @@ public class UserController {
 
     @HystrixCommand
     @GetMapping("/getUserName/{username}")
-    public String getUserName(@PathVariable String username) throws Exception {
+    public String getUserName(@PathVariable("username") String username) throws Exception {
         return userService.getUsername(username);
     }
 

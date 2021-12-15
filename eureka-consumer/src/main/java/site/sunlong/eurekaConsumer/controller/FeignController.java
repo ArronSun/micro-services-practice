@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site.sunlong.eurekaConsumer.service.ProviderService;
+import site.sunlong.eurekaConsumer.service.UserProviderService;
 
 /**
  * @Author: Sunlong
@@ -17,9 +18,10 @@ import site.sunlong.eurekaConsumer.service.ProviderService;
 @RestController
 public class FeignController {
 
-    @Qualifier("ZUUL-GATEWAY")
     @Autowired
     private ProviderService providerService;
+    @Autowired
+    private UserProviderService userProviderService;
 
     @HystrixCommand
     @GetMapping("hello")
@@ -38,6 +40,12 @@ public class FeignController {
     @GetMapping("getName/{name}")
     public String testProviderHystrix(@PathVariable("name") String name){
         return providerService.testHystrix(name);
+    }
+
+
+    @GetMapping("/getUserName/{username}")
+    public String getUserName(@PathVariable("username") String name){
+        return userProviderService.getUserName(name);
     }
 
 }
