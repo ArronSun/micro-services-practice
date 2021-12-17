@@ -15,7 +15,7 @@ public class ProviderFallbackFactory implements FallbackFactory<ProviderService>
 
     @Override
     public ProviderService create(Throwable throwable) {
-
+        throwable.printStackTrace();
         return new ProviderService() {
             @Override
             public String test() {
@@ -24,6 +24,7 @@ public class ProviderFallbackFactory implements FallbackFactory<ProviderService>
 
             @Override
             public String testHystrix(String name) {
+
                 return "ProviderFallbackFactory-testHystrix";
             }
         };
