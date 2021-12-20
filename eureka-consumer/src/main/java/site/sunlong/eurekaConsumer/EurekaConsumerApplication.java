@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
 @EnableHystrix
-@EnableFeignClients(basePackages = {"site.sunlong.*.*"})
+@EnableFeignClients(basePackages = {"site.sunlong.eurekaConsumer.service"})
 @EnableEurekaClient
 @SpringBootApplication(scanBasePackages={"site.sunlong.*.*"})
 public class EurekaConsumerApplication {

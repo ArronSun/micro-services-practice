@@ -2,7 +2,7 @@ package site.sunlong.eurekaConsumer.service.fallback;
 
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
-import site.sunlong.eurekaConsumer.service.ProviderService;
+import site.sunlong.eurekaConsumer.service.ProviderClientService;
 
 /**
  *  provider 失败反馈工厂类
@@ -10,13 +10,13 @@ import site.sunlong.eurekaConsumer.service.ProviderService;
  * @date: 2021/11/19 17:44
  */
 @Component
-public class ProviderFallbackFactory implements FallbackFactory<ProviderService> {
+public class ProviderFallbackFactory implements FallbackFactory<ProviderClientService> {
 
 
     @Override
-    public ProviderService create(Throwable throwable) {
+    public ProviderClientService create(Throwable throwable) {
         throwable.printStackTrace();
-        return new ProviderService() {
+        return new ProviderClientService() {
             @Override
             public String test() {
                 return "ProviderFallbackFactory-test";
