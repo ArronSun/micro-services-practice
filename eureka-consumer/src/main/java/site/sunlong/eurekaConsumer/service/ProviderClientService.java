@@ -13,7 +13,7 @@ import site.sunlong.eurekaConsumer.service.fallback.ProviderFallbackFactory;
  * @date: 2021/11/18 18:12
  */
 //@FeignClient(name = "PROVIDER" , path = "provider" , fallback = ProviderServiceFallback.class)
-@FeignClient(name = "ZUUL-GATEWAY" , path = "zuul-proxy/providers-proxy/provider" ,fallbackFactory = ProviderFallbackFactory.class,configuration = FeignClientConfig.class)
+@FeignClient(name = "ZUUL-GATEWAY" , path = "zuul-proxy/providers-proxy/provider" ,fallbackFactory = ProviderFallbackFactory.class)
 //@FeignClient(name = "PROVIDER" , path = "provider" , fallbackFactory = ProviderFallbackFactory.class)
 public interface ProviderClientService {
 

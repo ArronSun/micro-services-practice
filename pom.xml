@@ -29,6 +29,7 @@
         <module>cloud-stream-provider</module>
         <module>cloud-stream-consumer</module>
         <module>cloud-sleuth</module>
+        <module>cloud-security</module>
     </modules>
 
     <dependencyManagement>

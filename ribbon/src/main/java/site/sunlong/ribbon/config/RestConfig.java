@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
  * @Author: Sunlong
  * @date: 2021/11/18 14:25
  */
-//@Configuration
+@Configuration
 public class RestConfig {
 
     @Bean
