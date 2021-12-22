@@ -30,6 +30,9 @@
         <module>cloud-stream-consumer</module>
         <module>cloud-sleuth</module>
         <module>cloud-security</module>
+        <module>cloud-consul</module>
+        <module>cloud-gateway</module>
+        <module>oauth2-server</module>
     </modules>
 
     <dependencyManagement>
