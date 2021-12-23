@@ -6,8 +6,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * @author sunlong
@@ -17,10 +16,11 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 public class Oauth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("guest").password("guest").authorities("WRIGHT_READ")
+        final BCryptPasswordEncoder passwordEncoder = bCryptPasswordEncoder();
+        auth.inMemoryAuthentication().passwordEncoder(passwordEncoder)
+                .withUser("guest").password(passwordEncoder.encode("guest")).authorities("WRIGHT_READ")
                 .and()
-                .withUser("admin").password("admin").authorities("WRIGHT_READ","WRIGHT_WRITE");
+                .withUser("admin").password(passwordEncoder.encode("admin")).authorities("WRIGHT_READ","WRIGHT_WRITE");
     }
 
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
@@ -29,9 +29,13 @@ public class Oauth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
         return super.authenticationManagerBean();
     }
 
+    /**
+     * 密码加密方式
+     * @return
+     */
     @Bean
-    public static NoOpPasswordEncoder noOpPasswordEncoder(){
-        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+    public static BCryptPasswordEncoder bCryptPasswordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 
 

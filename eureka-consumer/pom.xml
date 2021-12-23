@@ -68,7 +68,6 @@
             <artifactId>cloud-security</artifactId>
             <version>${project.version}</version>
         </dependency>
-
     </dependencies>
 
 

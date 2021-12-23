@@ -11,7 +11,7 @@
     <properties>
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <spring-cloud.version>Greenwich.SR6</spring-cloud.version>
         <springboot.version>2.1.6.RELEASE</springboot.version>
     </properties>
 

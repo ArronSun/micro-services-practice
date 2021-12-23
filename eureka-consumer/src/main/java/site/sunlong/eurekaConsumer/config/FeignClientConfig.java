@@ -1,6 +1,7 @@
 package site.sunlong.eurekaConsumer.config;
 
 import feign.Logger;
+import feign.auth.BasicAuthRequestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,4 +17,9 @@ public class FeignClientConfig {
         return feign.Logger.Level.FULL;
     }
 
+
+    @Bean
+    public BasicAuthRequestInterceptor getBasicAuthRequestInterceptor() {
+        return new BasicAuthRequestInterceptor("eurekaUser", "eurekaUserPassword");
+    }
 }

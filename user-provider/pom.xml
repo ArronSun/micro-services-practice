@@ -57,6 +57,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>site.sunlong</groupId>
+            <artifactId>cloud-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

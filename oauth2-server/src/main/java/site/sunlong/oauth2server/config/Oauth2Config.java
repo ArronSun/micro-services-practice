@@ -17,8 +17,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
  * @author sunlong
  * @date 2021/12/22 21 57
  */
-@Configuration
 @EnableAuthorizationServer
+@Configuration
 public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
@@ -36,7 +36,7 @@ public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.tokenStore(tokenStore()).accessTokenConverter(jwtAccessTokenConverter())
+        endpoints.tokenStore(tokenStore()).tokenEnhancer(jwtAccessTokenConverter())
                 .authenticationManager(authenticationManager);
     }
 
