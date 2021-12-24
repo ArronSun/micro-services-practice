@@ -12,14 +12,21 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FeignClientConfig {
 
+    /**
+     * feign 日志打印
+     * @return
+     */
     @Bean
     public Logger.Level getFeignLoggerLevel() {
         return feign.Logger.Level.FULL;
     }
 
-
+    /**
+     *  Feign访问zuul 认证授权
+     * @return
+     */
     @Bean
     public BasicAuthRequestInterceptor getBasicAuthRequestInterceptor() {
-        return new BasicAuthRequestInterceptor("eurekaUser", "eurekaUserPassword");
+        return new BasicAuthRequestInterceptor("zuul-user", "zuul-password");
     }
 }

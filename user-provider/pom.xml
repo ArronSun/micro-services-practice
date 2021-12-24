@@ -58,11 +58,11 @@
             <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>site.sunlong</groupId>
             <artifactId>cloud-security</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>

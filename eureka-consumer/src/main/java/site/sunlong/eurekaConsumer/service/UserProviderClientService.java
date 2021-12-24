@@ -10,7 +10,7 @@ import site.sunlong.eurekaConsumer.service.fallback.UserProviderServiceFallbackF
  * @Author: Sunlong
  * @date: 2021/12/14 10:37
  */
-@FeignClient(name = "ZUUL-GATEWAY" , path = "zuul-proxy/user-providers-proxy/user"  ,fallbackFactory = UserProviderServiceFallbackFactory.class)
+@FeignClient(name = "ZUUL-GATEWAY" , path = "zuul-proxy/user-providers-proxy/user"  ,fallbackFactory = UserProviderServiceFallbackFactory.class,configuration = FeignClientConfig.class)
 public interface UserProviderClientService {
 
 

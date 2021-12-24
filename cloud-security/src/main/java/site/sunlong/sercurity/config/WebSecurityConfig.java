@@ -19,10 +19,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("root").password(new BCryptPasswordEncoder().encode("1234")).roles("USER").
-                and()
-                .withUser("admin").password(new BCryptPasswordEncoder().encode("admin")).roles("USER", "ADMIN");
+        final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+        auth.inMemoryAuthentication() // 将用户信息保存在内存中
+                .passwordEncoder(passwordEncoder) // 密码加密
+                .withUser("root").password(passwordEncoder.encode("1234")).roles("USER")
+                .and()
+                .withUser("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN");
     }
 
     @Override
@@ -40,6 +43,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
 
         web.ignoring().antMatchers("/actuator/hystrix.stream","/turbine.stream");
-
     }
 }
