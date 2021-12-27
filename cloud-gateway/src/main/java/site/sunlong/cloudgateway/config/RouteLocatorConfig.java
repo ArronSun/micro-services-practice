@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 @Configuration
 public class RouteLocatorConfig {
 
-    @Bean
+//    @Bean
     public RouteLocator routeLocator(RouteLocatorBuilder locatorBuilder){
 
         final RouteLocatorBuilder.Builder routes = locatorBuilder.routes();
