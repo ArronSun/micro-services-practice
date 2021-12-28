@@ -2,12 +2,16 @@ package site.sunlong.eurekaConsumer.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import site.sunlong.eurekaConsumer.service.ProviderClientService;
 import site.sunlong.eurekaConsumer.service.UserProviderClientService;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.websocket.server.PathParam;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Author: Sunlong
@@ -17,10 +21,14 @@ import site.sunlong.eurekaConsumer.service.UserProviderClientService;
 @RestController
 public class FeignController {
 
+    private final static Map<String, AtomicInteger> countMap = new ConcurrentHashMap<>();
+
     @Autowired
     private ProviderClientService providerClientService;
     @Autowired
     private UserProviderClientService userProviderClientService;
+
+
 
     @HystrixCommand
     @GetMapping("hello")
@@ -46,5 +54,31 @@ public class FeignController {
     public String getUserName(@PathVariable("username") String name){
         return userProviderClientService.getUserName(name);
     }
+
+    @GetMapping("/gateway/request")
+    public String getRequest(HttpServletRequest request) throws InterruptedException {
+
+        final String header = request.getHeader("request-arg");
+        System.out.println("AddRequestHeader="+header);
+
+        final String requestParameter = request.getParameter("request-parameter");
+        System.out.println("AddRequestParameter="+requestParameter);
+
+        //休眠20s
+        TimeUnit.SECONDS.sleep(20);
+
+        // 重试
+        final AtomicInteger atomicInteger = countMap.computeIfAbsent(requestParameter, v -> new AtomicInteger());
+        final int i = atomicInteger.incrementAndGet();
+
+        System.out.println("重试次数："+i);
+
+        if (i < 3){
+            throw new RuntimeException("try again.");
+        }
+
+        return "request";
+    }
+
 
 }
