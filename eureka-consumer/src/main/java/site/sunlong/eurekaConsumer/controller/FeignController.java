@@ -80,5 +80,10 @@ public class FeignController {
         return "request";
     }
 
+    @GetMapping("/gateway/rateLimit")
+    public String gatewayRateLimit(){
+
+        return "Request Rate Limit";
+    }
 
 }
