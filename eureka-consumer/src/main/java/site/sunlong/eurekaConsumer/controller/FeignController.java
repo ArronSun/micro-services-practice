@@ -3,6 +3,7 @@ package site.sunlong.eurekaConsumer.controller;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import site.sunlong.eurekaConsumer.pojo.UserEntity;
 import site.sunlong.eurekaConsumer.service.ProviderClientService;
 import site.sunlong.eurekaConsumer.service.UserProviderClientService;
 
@@ -50,9 +51,15 @@ public class FeignController {
     }
 
 
-    @GetMapping("/getUserName/{username}")
-    public String getUserName(@PathVariable("username") String name){
+    @GetMapping("/getUserName")
+    public String getUserName(@RequestParam("username") String name){
         return userProviderClientService.getUserName(name);
+    }
+
+
+    @GetMapping("/user/save")
+    String save( UserEntity userEntity){
+        return userProviderClientService.save(userEntity);
     }
 
     @GetMapping("/gateway/request")

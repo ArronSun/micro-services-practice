@@ -1,6 +1,7 @@
 package site.sunlong.userProvider.service;
 
 import org.springframework.stereotype.Service;
+import site.sunlong.userProvider.pojo.UserEntity;
 
 /**
  * @Author: Sunlong
@@ -15,5 +16,11 @@ public class UserServiceImpl implements UserService {
             throw new Exception();
         }
         return "username="+username;
+    }
+
+
+    @Override
+    public String save(UserEntity userEntity) {
+        return userEntity.toString();
     }
 }
