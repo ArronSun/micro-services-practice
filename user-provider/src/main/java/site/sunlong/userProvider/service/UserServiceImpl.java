@@ -1,6 +1,7 @@
 package site.sunlong.userProvider.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import site.sunlong.userProvider.pojo.UserEntity;
 
 /**
@@ -22,5 +23,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public String save(UserEntity userEntity) {
         return userEntity.toString();
+    }
+
+    @Override
+    public String uploadFile(MultipartFile multipartFile) {
+        final String originalFilename = multipartFile.getOriginalFilename();
+        return originalFilename;
     }
 }

@@ -1,7 +1,9 @@
 package site.sunlong.eurekaConsumer.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import site.sunlong.eurekaConsumer.config.FeignClientConfig;
 import site.sunlong.eurekaConsumer.pojo.UserEntity;
 import site.sunlong.eurekaConsumer.service.fallback.UserProviderServiceFallbackFactory;
@@ -20,5 +22,8 @@ public interface UserProviderClientService {
 
     @GetMapping("save")
     String save(UserEntity userEntity);
+
+    @PostMapping(name = "uploadFile" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    String uploadFile(@RequestPart("file") MultipartFile multipartFile);
 
 }

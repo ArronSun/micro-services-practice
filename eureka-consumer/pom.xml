@@ -68,6 +68,22 @@
             <artifactId>cloud-security</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.openfeign.form/feign-form-spring -->
+        <dependency>
+            <groupId>io.github.openfeign.form</groupId>
+            <artifactId>feign-form-spring</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.openfeign.form/feign-form -->
+        <dependency>
+            <groupId>io.github.openfeign.form</groupId>
+            <artifactId>feign-form</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+
+
     </dependencies>
 
 

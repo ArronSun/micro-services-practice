@@ -2,8 +2,12 @@ package site.sunlong.eurekaConsumer.config;
 
 import feign.Logger;
 import feign.auth.BasicAuthRequestInterceptor;
+import feign.codec.Encoder;
+import feign.form.spring.SpringFormEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 
 /**
  * @Author: Sunlong
@@ -28,5 +32,10 @@ public class FeignClientConfig {
     @Bean
     public BasicAuthRequestInterceptor getBasicAuthRequestInterceptor() {
         return new BasicAuthRequestInterceptor("zuul-user", "zuul-password");
+    }
+
+    @Bean
+    public Encoder multipartFormEncoder() {
+        return new SpringFormEncoder();
     }
 }

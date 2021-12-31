@@ -4,6 +4,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import site.sunlong.eurekaConsumer.pojo.UserEntity;
 import site.sunlong.eurekaConsumer.pojo.UserXmlDTO;
 import site.sunlong.eurekaConsumer.service.ProviderClientService;
@@ -96,5 +97,9 @@ public class FeignController {
     }
 
 
+    @PostMapping(value = "uploadFile" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    String uploadFile(MultipartFile multipartFile){
+        return userProviderClientService.uploadFile(multipartFile);
+    }
 
 }

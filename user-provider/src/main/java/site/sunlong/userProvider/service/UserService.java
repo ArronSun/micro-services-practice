@@ -1,5 +1,6 @@
 package site.sunlong.userProvider.service;
 
+import org.springframework.web.multipart.MultipartFile;
 import site.sunlong.userProvider.pojo.UserEntity;
 
 /**
@@ -13,7 +14,6 @@ public interface UserService {
 
     String save(UserEntity userEntity);
 
-
-
+    String uploadFile(MultipartFile multipartFile);
 
 }

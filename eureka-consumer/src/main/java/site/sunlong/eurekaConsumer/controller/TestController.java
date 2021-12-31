@@ -16,7 +16,7 @@ import site.sunlong.eurekaConsumer.pojo.UserXmlDTO;
 @RequestMapping("/test")
 public class TestController {
 
-    @PostMapping(name = "testXmlParam" , consumes = MediaType.APPLICATION_XML_VALUE , produces = MediaType.APPLICATION_XML_VALUE)
+    @PostMapping(value = "testXmlParam" , consumes = MediaType.APPLICATION_XML_VALUE , produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
     public UserXmlDTO testXmlParam(@RequestBody UserXmlDTO userXmlDTO){
         System.out.println(userXmlDTO);

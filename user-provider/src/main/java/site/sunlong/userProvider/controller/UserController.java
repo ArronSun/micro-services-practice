@@ -2,7 +2,9 @@ package site.sunlong.userProvider.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import site.sunlong.userProvider.pojo.UserEntity;
 import site.sunlong.userProvider.service.UserService;
 
@@ -26,6 +28,12 @@ public class UserController {
     @GetMapping("save")
     String save(UserEntity userEntity){
         return userService.save(userEntity);
+    }
+
+
+    @PostMapping(name = "uploadFile" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    String uploadFile(MultipartFile multipartFile){
+        return userService.uploadFile(multipartFile);
     }
 
 }

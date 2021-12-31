@@ -2,6 +2,7 @@ package site.sunlong.eurekaConsumer.service.fallback;
 
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 import site.sunlong.eurekaConsumer.pojo.UserEntity;
 import site.sunlong.eurekaConsumer.service.UserProviderClientService;
 
@@ -24,6 +25,11 @@ public class UserProviderServiceFallbackFactory implements FallbackFactory<UserP
             @Override
             public String save(UserEntity userEntity) {
                 return "UserProviderServiceFallbackFactory-save-fallback:"+userEntity;
+            }
+
+            @Override
+            public String uploadFile(MultipartFile multipartFile) {
+                return "UserProviderServiceFallbackFactory-save-fallback:"+multipartFile.getOriginalFilename();
             }
         };
     }
