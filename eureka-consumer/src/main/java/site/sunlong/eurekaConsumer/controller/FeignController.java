@@ -2,8 +2,10 @@ package site.sunlong.eurekaConsumer.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import site.sunlong.eurekaConsumer.pojo.UserEntity;
+import site.sunlong.eurekaConsumer.pojo.UserXmlDTO;
 import site.sunlong.eurekaConsumer.service.ProviderClientService;
 import site.sunlong.eurekaConsumer.service.UserProviderClientService;
 
@@ -92,5 +94,7 @@ public class FeignController {
 
         return "Request Rate Limit";
     }
+
+
 
 }
