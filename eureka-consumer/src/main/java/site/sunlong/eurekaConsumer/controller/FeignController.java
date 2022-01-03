@@ -98,7 +98,7 @@ public class FeignController {
 
 
     @PostMapping(value = "uploadFile" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    String uploadFile(MultipartFile multipartFile){
+    String uploadFile(@RequestPart("file") MultipartFile multipartFile){
         return userProviderClientService.uploadFile(multipartFile);
     }
 

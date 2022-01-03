@@ -34,8 +34,10 @@ public class FeignClientConfig {
         return new BasicAuthRequestInterceptor("zuul-user", "zuul-password");
     }
 
+    /*@Primary
+    @Scope("prototype")
     @Bean
     public Encoder multipartFormEncoder() {
         return new SpringFormEncoder();
-    }
+    }*/
 }
